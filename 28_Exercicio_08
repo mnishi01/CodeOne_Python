@@ -1,0 +1,14 @@
+# > LET´S CODE - CODE ONE
+# > Exercicio 08
+
+soma = 1
+
+lista = []
+lista.append(0)
+lista.append(1)
+
+for i in range(998):
+    lista.append(lista[i+1] * (i+2))
+    soma = soma + (1/lista[i+1])
+
+print(soma)

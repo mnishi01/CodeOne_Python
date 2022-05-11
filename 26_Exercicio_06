@@ -1,0 +1,19 @@
+# > LET´S CODE - CODE ONE
+# > Exercicio 06
+
+def lista_soma (lista_function):
+    return sum(lista_function)
+
+qtde = int(input('Quantos ítens tem sua lista? '))
+while (qtde <= 0):
+    print('Esse número não é válido! Tente novamente.')
+    qtde = int(input('Quantos ítens tem sua lista? '))
+
+lista = []
+
+for i in range(qtde):
+    valor = float(input(f'Informe o valor do item {i}: '))
+    lista.append(valor)
+
+print('A lista informada é: ', lista)
+print('Soma dos elementos da lista: ', lista_soma(lista))

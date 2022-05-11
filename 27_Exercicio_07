@@ -1,0 +1,13 @@
+# > LET´S CODE - CODE ONE2
+# > Exercicio 07
+
+def distancia_ao_quadrado (z1, z2):
+    return (z2 - z1)**2
+
+x1 = float(input('Informe a coordenada x do primeiro ponto: '))
+y1 = float(input('Informe a coordenada y do primeiro ponto: '))
+x2 = float(input('Informe a coordenada x do segundo ponto: '))
+y2 = float(input('Informe a coordenada y do segundo ponto: '))
+
+distancia = (distancia_ao_quadrado(x1, x2) + distancia_ao_quadrado(y1, y2))**(0.5)
+print ('A distância euclidiana entre o ponto (', x1, ',', y1, ') e (', x2, ',', y2, ') é:', distancia )

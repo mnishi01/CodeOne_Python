@@ -1,0 +1,61 @@
+# > LET´S CODE - CODE ONE
+# > Exercicio 09
+
+from random import randint
+
+lista = []
+
+for i in range(10):
+    lista.append(randint(0,100))
+
+print ('Lista gerada: ', lista)
+
+
+print ('1. uma lista com os 4 primeiros números')
+startindex = 0
+stopindex = 4
+step = 1
+for i in range(startindex, stopindex, step):
+    print ('Item ', i, ': ', lista[i])
+
+print ('2. uma lista com os 5 últimos números')
+startindex = 9
+stopindex = 4
+step = -1
+for i in range(startindex, stopindex, step):
+    print ('Item ', i, ': ', lista[i])
+
+print ('3. uma lista contendo apenas os elementos das posições pares')
+startindex = 0
+stopindex = 10
+step = 2
+for i in range(startindex, stopindex, step):
+    print ('Item ', i, ': ', lista[i])
+
+print ('4. uma lista contendo apenas os elementos das posições ímpares')
+startindex = 1
+stopindex = 10
+step = 2
+for i in range(startindex, stopindex, step):
+    print ('Item ', i, ': ', lista[i])
+
+print ('5. a lista inversa da lista sorteada (isto é, uma lista que começa com o último elemento da lista sorteada e termina com o primeiro)')
+startindex = 0
+stopindex = 10
+step = 1
+for i in range(startindex, stopindex, step):
+    print ('Item ', 10-i-1, ': ', lista[10-i-1])
+
+print ('6. uma lista inversa dos 5 primeiros números')
+startindex = 0
+stopindex = 5
+step = 1
+for i in range(startindex, stopindex, step):
+    print ('Item ', 5-i-1, ': ', lista[5-i-1])
+
+print ('7. uma lista inversa dos 5 últimos números')
+startindex = 5
+stopindex = 10
+step = 1
+for i in range(startindex, stopindex, step):
+    print ('Item ', 10-i-1+5, ': ', lista[10-i-1+5])

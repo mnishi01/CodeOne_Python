@@ -1,0 +1,16 @@
+# > LET´S CODE - CODE ONE
+# > Exercicio 02
+
+numero_escolhido = float(input('Informe um número: '))
+
+if (numero_escolhido<0 or numero_escolhido>100):
+    print('Fora de Intervalo')
+elif (numero_escolhido>=0 and numero_escolhido<=25):
+    print('[0, 25]')
+elif (numero_escolhido<=50):
+    print('(25, 50]')
+elif (numero_escolhido<=75):
+    print('(50, 75]')
+else:
+    print('(75, 100]')
+

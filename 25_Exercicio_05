@@ -1,0 +1,38 @@
+# > LET´S CODE - CODE ONE
+# > Exercicio 05
+
+def item_questionario(pergunta):
+    resposta = input(pergunta+' (sim/nao): ')
+    while (resposta not in ['sim', 'nao']):
+        print('Essa resposta não é válida! Tente novamente.')
+        resposta = input(pergunta+' (sim/nao): ')
+    if (resposta=='sim'):
+        return 1
+    else:
+        return 0
+
+contador = 0
+
+perg = '1. Mora perto da vítima?'
+contador = contador + item_questionario(perg)
+
+perg = '2. Já trabalhou com a vítima?'
+contador = contador + item_questionario(perg)
+
+perg = '3. Telefonou para a vítima?'
+contador = contador + item_questionario(perg)
+
+perg = '4. Esteve no local do crime?'
+contador = contador + item_questionario(perg)
+
+perg = '5. Devia para a vítima?'
+contador = contador + item_questionario(perg)
+
+if contador == 5:
+    print('Você é o(a) assassino(a) - Pontos:', contador)
+elif contador >= 3:
+    print('Você é um(a) cúmplice - Pontos:', contador)
+elif contador == 2:
+    print('Você é um(a) suspeito(a) - Pontos:', contador)
+else:
+    print('Você é está liberado(a) - Pontos:', contador)

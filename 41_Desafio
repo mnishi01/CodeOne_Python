@@ -1,0 +1,88 @@
+# > LET´S CODE - CODE ONE
+# > Desafio
+
+import os
+import emoji
+from random import randint
+from time import sleep
+
+lista_palavra = []
+lista_palavra_display = []
+letras_erradas = []
+max_erros = 5
+erros_restantes = max_erros
+
+def criacao_palavra ():
+    lista = ['tigela', 'porta', 'muito', 'jaca', 'sentinela']
+    palavra = lista[randint(0,len(lista)-1)]
+    return list(palavra.upper())
+
+def criacao_palavra_display (qtde_letras):
+    palavra_display = ''
+    for i in range(qtde_letras):
+        palavra_display = palavra_display + '_ '
+    return list(palavra_display)
+
+def input_letra ():
+    print('')
+    letra = input(emoji.emojize(':backhand_index_pointing_right: Escolha uma letra: '))
+    letra = letra.upper()
+    print('')
+    return letra[0:1]
+
+def letra_check (letra, lista_palavra, lista_palavra_display):
+    count_letra = lista_palavra.count(letra)
+    if count_letra > 0:
+        i = 0
+        count = 0
+        while i in range(len(lista_palavra)) and count <= count_letra:
+            if lista_palavra[i] == letra:
+                lista_palavra_display[i*2]= letra
+                count = count + 1
+            i = i + 1
+
+    if count_letra == 0:
+        return False
+    else:
+        return True
+
+# introdução
+os.system('cls')
+print('Seja bem-vindo(a) ao Jogo da Forca em Python!', emoji.emojize(':winking_face:'))
+nome = input('Qual o seu nome? ')
+
+# seleção da palavra de uma lista
+print('Olá, ', nome, '! Deixe-me buscar uma palavra para esse jogo...')
+lista_palavra = criacao_palavra()
+lista_palavra_display = criacao_palavra_display(len(lista_palavra))
+sleep(3)
+
+while (erros_restantes > 0) and (lista_palavra_display.count('_') != 0):
+    os.system('cls')
+    print ('A palavra tem ', len(lista_palavra), ' letras!', emoji.emojize(':light_bulb:'))
+    print ('Você só pode errar ', erros_restantes, ' vezes até acertar a palavra!')
+    print('')
+    print(''.join(lista_palavra_display))
+    if erros_restantes != max_erros:
+        print('')
+        print(emoji.emojize(':cross_mark:'), ' Letras erradas: ', letras_erradas)
+
+    letra = input_letra()
+    existe = letra_check(letra, lista_palavra, lista_palavra_display)
+ 
+    if(existe == False):
+        erros_restantes = erros_restantes - 1
+        letras_erradas.append(letra)
+        print('Xi, Marquinho... A letra ', letra, ' não existe na palavra!', emoji.emojize(':cross_mark:'))
+        if erros_restantes > 0:
+            print('Você só tem mais ', erros_restantes, ' chances!')
+        else:
+            print('Que pena... Você perdeu desta vez!', emoji.emojize(':cross_mark: :cross_mark:'))
+    else:
+        print('Isso! A letra ', letra, ' existe na palavra!', emoji.emojize(':clapping_hands:'))
+        if lista_palavra_display.count('_') == 0:
+            print('Aee, você ganhou! Parabéns!', emoji.emojize(':clapping_hands: :clapping_hands:'))
+    sleep(3)
+
+print('')
+print ('A palavra era: ', ''.join(lista_palavra))

@@ -1,0 +1,49 @@
+# > LET´S CODE - CODE ONE
+# > Exercicio 10
+
+def entrada_count (entrada):
+    contador = 0
+    for letra in entrada:
+        if letra == '/':
+            contador = contador + 1
+    return contador-1
+
+def compasso_check (palavra):
+    valor = 0
+    for letra in palavra:
+        for chave in dicionario:
+            if letra == chave:
+                valor = valor + dicionario[chave]
+    if valor == 1:
+        return True
+    else: 
+        return False
+
+dicionario = {}
+dicionario = {'W': 1, 'H': 1/2, 'Q': 1/4, 'E': 1/8, 'S': 1/16, 'T': 1/32, 'X': 1/64}
+
+count_total = 0
+count_correto = 0
+count_incorreto = 0
+lista_incorreto = []
+
+entrada = input('Informe a entrada: ')
+entrada.upper()
+count_total = entrada_count(entrada)
+print ('Total de compassos: ', count_total)
+
+previous_marker = 0
+for i in range(count_total):
+    next_marker = entrada.find('/', previous_marker+1)
+    palavra = entrada[previous_marker+1:next_marker]
+    if compasso_check(palavra) == False:    
+        count_incorreto = count_incorreto + 1
+        lista_incorreto.append(palavra)
+    else:
+        count_correto = count_correto + 1
+    previous_marker = next_marker
+
+print ('Total de compassos corretos: ', count_correto)
+print ('Total de compassos incorretos: ', count_incorreto)
+print(lista_incorreto)
+

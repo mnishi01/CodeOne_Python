@@ -1,0 +1,14 @@
+# > LET´S CODE - CODE ONE
+# > Exercicio 01
+
+numero_escolhido = int(input('Informe um número maior que zero: '))
+
+while (numero_escolhido <= 0):
+    print('Esse número não é válido! Tente novamente.')
+    numero_escolhido = int(input('Informe um número maior que zero: '))
+
+contador = 1
+while (contador <= numero_escolhido):
+    print('Contador =', contador)
+    contador = contador + 1
+    
